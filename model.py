@@ -9,7 +9,7 @@ logging.basicConfig(level=logging.INFO)
 # Fungsi untuk memuat model
 @st.cache_resource
 def load_model():
-    model = tf.keras.models.load_model('Cotton_Model_VGG16.h5')
+    model = tf.keras.models.load_model('Model_VGG16.h5')
     return model
 
 # Fungsi untuk memprediksi gambar

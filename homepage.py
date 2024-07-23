@@ -8,8 +8,16 @@ st.set_page_config(
 )
 
 # Judul dan deskripsi aplikasi
-st.title("Aplikasi Klasifikasi Penyakit Daun Kapas")
-st.write('Muat gambar daun kapas untuk klasifikasi penyakitnya.')
+st.title("Aplikasi Klasifikasi Daun Kapas")
+st.write('Selamat Datang di Aplikasi Klasifikasi Daun Kapas, Muat gambar daun kapas untuk klasifikasi penyakitnya.')
+
+# Menambahkan gambar
+intro_image = Image.open("images\cotton.jpg")  # Ganti dengan path gambar yang ingin ditambahkan
+st.image(intro_image, caption='Contoh Gambar Daun Kapas', use_column_width=True)
+
+# Menambahkan kredit gambar
+st.write("Image by Rajesh Ram")
+
 st.sidebar.success("You're At Homepage Now")
 
 # Load model
@@ -52,3 +60,4 @@ if uploaded_file is not None:
             st.write("""
             **Sehat** berarti daun kapas Anda dalam kondisi baik dan tidak menunjukkan gejala penyakit. Tetap perhatikan kesehatan tanaman dengan pemeliharaan yang baik dan pencegahan penyakit untuk memastikan hasil panen yang optimal.
             """)
+

@@ -12,7 +12,7 @@ st.title("Aplikasi Klasifikasi Daun Kapas")
 st.write('Selamat Datang di Aplikasi Klasifikasi Daun Kapas, Muat gambar daun kapas untuk klasifikasi penyakitnya.')
 
 # Menambahkan gambar
-intro_image = Image.open("images\Cotton.jpg")  # Ganti dengan path gambar yang ingin ditambahkan
+intro_image = Image.open("images/Cotton.jpg")  # Ganti dengan path gambar yang ingin ditambahkan
 st.image(intro_image, caption='Contoh Gambar Daun Kapas', use_column_width=True)
 
 # Menambahkan kredit gambar

@@ -1,6 +1,8 @@
 import streamlit as st
 from PIL import Image
 from model import load_model, predict_image
+import io
+import logging
 
 # Konfigurasi halaman
 st.set_page_config(
@@ -29,6 +31,15 @@ uploaded_file = st.file_uploader("Pilih gambar daun kapas...", type=["jpg", "jpe
 if uploaded_file is not None:
     # Tampilkan gambar yang diunggah
     image = Image.open(uploaded_file)
+
+     # Konversi PNG ke JPG jika format asli adalah PNG
+    if uploaded_file.type == 'image/png':
+        logging.info("Converting PNG to JPG")
+        image = image.convert('RGB')
+        with io.BytesIO() as output:
+            image.save(output, format="JPEG")
+            image = Image.open(io.BytesIO(output.getvalue()))
+
     st.image(image, caption='Gambar yang diunggah', use_column_width=True)
     
     # Tombol prediksi

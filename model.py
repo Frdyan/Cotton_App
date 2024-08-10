@@ -14,6 +14,11 @@ def load_model():
 
 # Fungsi untuk memprediksi gambar
 def predict_image(model, image):
+    # Konversi gambar ke format RGB jika tidak dalam format tersebut
+    if image.mode != 'RGB':
+        logging.info(f"Converting image from {image.mode} to RGB")
+        image = image.convert('RGB')
+        
     image = image.resize((224, 224))
     image = np.array(image) / 255.0
     image = np.expand_dims(image, axis=0)
